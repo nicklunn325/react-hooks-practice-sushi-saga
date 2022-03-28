@@ -1,7 +1,21 @@
 import React from "react";
 
-function MoreButton(props) {
-  return <button onClick={/* Fill me in! */ null}>More sushi!</button>;
+function MoreButton({ setIndex, sushisLength }) {
+  return (
+    <button
+      onClick={() => {
+        setIndex((prevState) => {
+          if (prevState >= sushisLength - 4) {
+            return 0;
+          } else {
+            return prevState + 4;
+          }
+        });
+      }}
+    >
+      More sushi!
+    </button>
+  );
 }
 
 export default MoreButton;
